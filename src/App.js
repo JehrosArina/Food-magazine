@@ -7,6 +7,9 @@ import List from './component/List';
 import AddPost from './component/AddPost';
 
 function App() {
+  const [searchResult, setsearchResult] =useState([]) // for Search result
+  console.log('tihis is the result')
+  console.log(searchResult)
   const [data, setData] = useState([
     {
       "id": 1,
@@ -50,19 +53,18 @@ function App() {
     }
   ]);
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="App">
    
-      <Header />
+      <Header data={data} setData={setData} searchResult={searchResult} setsearchResult={setsearchResult}/>
+
       <div className='post'>
-              <AddPost data={data} setData={setData}/>
+              <AddPost data={data} setData={setData}  />
       </div>
 
-   
-
-     <List data={data} setData={setData}/>
+         <List data={searchResult.length > 0 ? searchResult : data} setData={setData} />
     
     <footer>
       <p>All right reserve &copy; {new Date().getFullYear()}</p>

@@ -1,13 +1,33 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'  
-
+import { useState } from 'react';
 
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import './Header.css'
 
- const Header = () => {
+ const Header = ({data, setData, searchResult, setsearchResult }) => {
 
     const search = <FontAwesomeIcon icon={faSearch} />
+
+
+ //Search functionality
+    const [searchTerm, setSearchTerm] = useState('')  //for input
+   
+
+const handleSearchText = (event) => {
+    const searchText = event.target.value;
+    setSearchTerm(searchText);
+  };
+
+  const handleSearch = () => {
+    const filteredData = data.filter((el) => {
+      return el.recipeName.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    setsearchResult(filteredData);
+
+   
+  };
+
 
   return (
     <header className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,11 +53,13 @@ import './Header.css'
           </ul>
         </div>
         <div className="search-icon">
-            <input className='search' type="search" placeholder="Search..."></input>
+            <input className='search' type="search" placeholder="Search..." onChange={handleSearchText}></input>
              <div className='searchBtn'>  
-             <button className='btn'>{search}</button>
+             <button className='btn'onClick={handleSearch}>{search}</button>
             </div>   
         </div>
+
+  
       </div>
     </header>
   );

@@ -69,7 +69,6 @@ const handleIngredientsText =(event) =>{
     }
   };
  
- 
 
 //Save Functionality 
 const memoizedhandleSave = useMemo(() =>{ // used memoized name function to get a better performance
@@ -88,6 +87,7 @@ return (id) =>{
   }
   }
 },[edittext, editTitle,editCategories,editCategories,editPriceAmount,iditIngredientsText])  // dependencies are pass a second argument
+
 
 
 

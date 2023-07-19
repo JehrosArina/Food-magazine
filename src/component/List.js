@@ -89,8 +89,6 @@ return (id) =>{
   }
 },[edittext, editTitle,editCategories,editCategories,editPriceAmount,iditIngredientsText])  // dependencies are pass a second argument
 
-
-
   return (
      <div className='container'>
         <div className='image-container'>

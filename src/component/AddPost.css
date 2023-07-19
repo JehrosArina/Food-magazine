@@ -1,0 +1,71 @@
+.forContainer{
+    display: flex;
+   flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(198, 194, 188);
+    height: 514px;
+}
+input{
+    border:none;
+}
+.recipe{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+width: 400px;
+padding:10px;
+}
+.category{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+width: 400px;
+padding:10px;
+}
+.ingredients{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+padding:10px;
+
+}
+
+.price{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+padding:10px; 
+}
+
+.priceText{
+    margin-left: 85px;
+}
+
+textarea{
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    border:none;
+}
+
+.categorText{
+    margin-left: 20px;
+}
+
+.postBtn{
+    width: 100px;
+    height: 40px;
+ 
+    margin-top: 40px;
+    background-color: rgb(88, 88, 99);
+    color: white;
+    width:60%;
+    background-color: red;
+}
+
+.headerTitle{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    padding: 10px;
+}

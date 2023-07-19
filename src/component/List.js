@@ -33,11 +33,14 @@ const List = ({data, setData}) => {
   const [editTitle, setEditTitle] =useState('')
   const [editCategories, setCategories] =useState('')
   const [editPriceAmount,setPriceAmount] =useState('')
+const [iditIngredientsText,setIditIngredientsText] =useState('')
+  
 
 const handleEditTitle =(event) =>{
  const title = event.target.value;
  setEditTitle(title)
 }
+
 const handleEditCategory=(event) =>{
  const categoryText = event.target.value;
  setCategories(categoryText)
@@ -45,6 +48,11 @@ const handleEditCategory=(event) =>{
 const handleEditPrice =(event) =>{
  const priceAmount = event.target.value;
  setPriceAmount(priceAmount)
+}
+
+const handleIngredientsText =(event) =>{
+ const editIngredients = event.target.value;
+ setIditIngredientsText(editIngredients.split(","));
 }
  const handleEdit = (id) => {
     // Find the item to be edited using the provided id
@@ -56,6 +64,8 @@ const handleEditPrice =(event) =>{
       setEditTitle(itemToEdit.recipeName);
       setCategories(itemToEdit.category);
       setPriceAmount(itemToEdit.price);
+      // Join the ingredients array to a string for easy editing
+      setIditIngredientsText(itemToEdit.ingredients.join(","));
     }
   };
  
@@ -70,13 +80,14 @@ return (id) =>{
     updateData.recipeName = editTitle;  
     updateData.category = editCategories;
     updateData.price = editPriceAmount;
+    updateData.ingredients = iditIngredientsText
     const end = performance.now();
     console.log(`Time taken by memoized saving changes: ${end - start}ms`);
     setEditText([...edittext, updateData]); 
     setEditText('')
   }
   }
-},[edittext, editTitle,editCategories,editCategories,editPriceAmount])  // dependencies are pass a second argument
+},[edittext, editTitle,editCategories,editCategories,editPriceAmount,iditIngredientsText])  // dependencies are pass a second argument
 
 
 
@@ -112,7 +123,7 @@ return (id) =>{
                                <input  required className='editText' Placeholder='Title ' onChange={handleEditTitle}></input>
                                <input required className='editText' Placeholder='Catergory 'onChange={handleEditCategory}></input>
                                <input  required className='editText' Placeholder='Price' onChange={handleEditPrice} ></input>
-            
+                               <textarea  required className='editText' Placeholder='Ingredients' onChange={handleIngredientsText} ></textarea>  
                                </div>
                                <div className='btnHolder'>
                                <button className='savebtn'onClick={()=> memoizedhandleSave(el.id)}>{save}</button>
